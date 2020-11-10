@@ -1,0 +1,223 @@
+/*** Header Styles ***/
+header {
+    height: 70px;
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    position: relative;
+}
+
+/*** Navigation Styles ***/
+nav {
+    height: 70px;
+    width: 100%;
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: fixed;
+    z-index: 10;
+    transition: all 0.3s;
+    left: 0;
+    top: 0;
+
+    &.navShadow {
+        box-shadow: 0 4px 30px -5px rgba(#000, 0.2);
+        height: 100px;
+        color: #000;
+    }
+
+    &.navShadow.dark {
+        background-color: $color-grey-dark-3;
+    }
+}
+
+.header__brand,
+.menu,
+.menu ul{
+    display: flex;
+    align-items: center;
+
+    & :nth-child(3) {
+        white-space: nowrap;
+    }
+}
+
+.menu {
+    padding-right: 40px;
+}
+
+.header__brand {
+    padding-left: 40px;
+    @include respond(phone) {
+        width: 50%;
+    }
+    .logo{
+        cursor: pointer;
+        img{
+            max-width: 100%; 
+            height: auto;
+        }
+    }
+}
+
+
+/*** Menu Styles ***/
+.menu ul {
+    li {
+        position: relative;
+        vertical-align: middle;
+        height: 100%;
+        list-style: none;
+        display: inline-block;
+
+        a {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            vertical-align: middle;
+            height: 100%;
+            padding:29px 24px;
+            line-height: 23px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: $color-primary;
+            text-decoration: none;
+            -webkit-transition: color .2s ease-out;
+            -moz-transition: color .2s ease-out;
+            transition: color .2s ease-out;
+
+            &:hover {
+                color: #646464;
+            }
+        }
+    }
+}
+
+.header__login-btn {
+    position: relative;
+
+    a {
+        padding: 10px 40px;
+        border-radius: 5px;
+        border: 1px solid $color-primary;
+        color: $color-primary;
+        text-decoration: none;
+        -webkit-transition: color .2s ease-out;
+        -moz-transition: color .2s ease-out;
+        transition: color .2s ease-out;
+
+        &:hover {
+            color: #646464;
+            border: 1px solid #646464;
+        }
+    }
+}
+
+.menu-toggle {
+    @include object(55px, 55px, darken($color-primary, 5%));
+    @include center;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    z-index: 2000;
+    position: absolute;
+    right: 5%;
+    top: 22%;
+@include respond(phone-sm){
+    width: 45px;
+    height: 45px;
+}
+    &:hover .bar {
+        width: 25px;
+    }
+
+    &.closeMenu {
+        .bar {
+            width: 25px;
+
+            &:first-child {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            &:nth-child(2) {
+                transform: scale(0);
+            }
+
+            &:last-child {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+        }
+    }
+}
+
+.bar {
+    width: 25px;
+    height: 2px;
+    background: #000;
+    transition: 0.3s ease-in-out;
+
+    &:nth-child(2) {
+        width: 20px;
+        margin: 5px 0;
+    }
+
+    &:last-child {
+        width: 15px;
+    }
+}
+
+/*** Responsive Menu For Smaller Device ***/
+
+@media screen and (max-width: 991px) {
+    .menu {
+        justify-content: flex-end;
+        padding-right: 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu ul {
+        display: inline-block;
+        @include object(100vw, 0, #000);
+        @include transPos(0, null, null, null, null, null);
+        box-shadow: 0 5px 30px -4px rgba(#000, 0.2);
+        transition: all 0.3s;
+       
+
+        &.showMenu {
+            height: 100vh;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1000;
+            padding-top: 80px;
+            li {
+                height: 80px;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        li {
+            @include object(100%, 80px, null);
+            opacity: 0;
+            visibility: hidden;
+            margin: 0 auto;
+            text-align: center;
+            transition: all 0.3s 0.1s;
+        }
+    }
+
+    .header__login-btn {
+        display: none;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 991px) and (orientation: landscape) {
+    .menu ul {
+        display: flex;
+  }
+}

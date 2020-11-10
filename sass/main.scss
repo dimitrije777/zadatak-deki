@@ -1,0 +1,21 @@
+@import "../assets/font-awesome/css/font-awesome.css";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+
+@import "components/button";
+@import "components/card";
+@import "components/main-slider";
+@import "components/blog";
+@import "components/clients";
+
+@import "layout/footer";
+@import "layout/grid";
+@import "layout/header-mob-navigation";
+@import "pages/home";
+

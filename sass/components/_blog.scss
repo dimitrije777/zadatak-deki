@@ -1,0 +1,87 @@
+.card {
+    position: relative;
+    margin: 40px 0;
+    @include respond(phone) {
+        margin: 0;
+    }
+    &__title{
+        text-align: center;
+        margin: 40px 0;
+        @include respond(phone) {
+            margin: 20px 0;
+        }
+        h2{
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            @include respond(phone) {
+                margin: 18px 0;
+            }
+        }
+    }
+    &__wrapper {
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+        perspective: 1px;
+        &:hover{
+            transform: translate(0, -5px);
+            -webkit-transform: translate(0, -5px);
+            transition: transform .3s ease-in;
+                transition-property: transform;
+            -webkit-transition-property: transform;
+            transition-property: transform;
+        }
+        @include respond(tab-port){
+            max-width: 450px;
+            margin: 0 auto;
+        }
+    }
+
+    &__details {
+        display: block;
+    }
+
+    &__img {
+        display: block;
+        overflow: hidden;
+        height: 100%;
+        &:hover img{
+            transform: scale(1.05);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+            border-style: none;
+            position: relative;
+            transition: all 1.5s cubic-bezier(.2,-.01,.25,.9);
+        }
+    }
+    &__content{
+        padding: 20px 30px;
+        text-align: center;
+        p{
+            text-align: left;
+        }
+        a{
+            text-align: center;
+            transition: all 400ms ease-in-out;
+            &:hover{
+                border: 1px solid #4589c0;
+                color:  #4589c0;
+                background-color: $color-primary;
+            }
+        }
+    }
+}
+
+
+.scale-up:hover .big-img {
+    transform: scale(1.05);
+    
+  }
+  .scale-up figure img {
+    position: relative;
+    z-index: -1;
+    transition: all 1.5s cubic-bezier(.2,-.01,.25,.9);
+  }

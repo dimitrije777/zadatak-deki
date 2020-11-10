@@ -1,0 +1,77 @@
+.main__slider {
+    position: relative;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    margin-top: -70px;
+
+    .main__slider-text {
+        position: absolute;
+        right: 0%;
+        top: 10%;
+        transform: translate(-53%, 50%);
+        width: 25%;
+
+        @include respond(big-desktop) {
+            width: 30%;
+            transform: translate(-53%, 32%);
+        }
+
+        @include respond(tab-land-sm) {
+            width: 100%;
+            transform: translate(-50%, -50%);
+            top: 60%;
+            left: 50%;
+            max-width: 450px;
+        }
+
+        @include respond(phone-sm) {
+            padding: 0 45px;
+        }
+
+        h2 {
+            font-size: 30px;
+            color: $color-primary;
+            line-height: 30px;
+
+            @include respond(tab-land) {
+                font-size: 20px;
+
+            }
+
+            @include respond(phone) {
+                font-size: 17px;
+                line-height: 25px;
+            }
+        }
+
+        p {
+            color: $color-primary;
+            font-size: 16px;
+            margin-top: 25px;
+
+            @include respond(tab-land) {
+                font-size: 13px;
+                margin-top: 10px;
+            }
+
+            @include respond(phone) {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .main__slider {
+        height: 75vh;
+        padding-bottom: 0;
+
+        .main__slider-text {
+            top: 50%;
+        }
+    }
+}
