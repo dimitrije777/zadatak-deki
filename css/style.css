@@ -235,7 +235,7 @@ body {
   font-size: 15px !important;
   padding: 10px 40px;
   color: #ffffff;
-  background-color: #4589c0;
+  background-color: red;
   margin: 30px 0 15px 0; }
   @media only screen and (max-width: 480px) {
     .btn-card {
@@ -250,14 +250,14 @@ body {
   text-transform: uppercase;
   text-decoration: none;
   display: inline-block;
-  border-radius: 5px;
+  border-radius: 6px;
   transition: all .2s;
   position: relative;
   font-size: 1.6rem;
   border: none;
   cursor: pointer;
   font-size: 15px !important;
-  padding: 10px 80px;
+  padding: 12px 82px;
   color: #ffffff;
   background-color: #4589c0;
   margin-right: 40px; }
